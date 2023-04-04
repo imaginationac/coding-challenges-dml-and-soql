@@ -19,4 +19,9 @@ public with sharing class DataLord {
     public Opportunity LastBigOpportunity(){
         return [SELECT closeDate, amount FROM Opportunity WHERE amount > 100000 ORDER BY closeDate LIMIT 1];
     }
+
+    // Return all Contacts that are associated with an Account with a Rating of Hot
+    public List<Contact> MajorPlayers(){
+        return [SELECT Account.Rating, firstName, lastName FROM Contact WHERE Account.Rating = 'Hot'];
+    }
 }
