@@ -9,4 +9,8 @@ public with sharing class DataLord {
     public Integer NumHot(){
         return [SELECT COUNT() FROM ACCOUNT WHERE Rating = 'Hot'];
     }
+
+    public Integer NumComplex(){
+        return [SELECT Name FROM Account WHERE Name LIKE '%&%'];
+    }
 }
